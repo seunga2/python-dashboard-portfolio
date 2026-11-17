@@ -5,8 +5,15 @@ import streamlit as st
 
 st.set_page_config(page_title='OpenCV 영상 처리 데모', page_icon='🎥', layout='wide')
 st.title('🎥 OpenCV 영상 처리 데모')
-st.caption('Python · OpenCV · NumPy | 가상 이동 객체 분석 예제')
-st.info('이 데모는 가상 영상의 녹색 객체를 색상으로 검출합니다. 사람 인식(YOLO)이나 실제 혼잡도 분석 결과가 아닙니다.')
+st.caption('Python · OpenCV · NumPy')
+
+st.subheader('사전 처리된 검출·추적 시연')
+st.caption('제작자가 만든 시연 영상입니다. 검출 박스, 추적 ID, 대기 구역과 집계가 영상에 표시됩니다.')
+st.video(Path(__file__).with_name('detection_demo.mp4').read_bytes())
+
+st.divider()
+st.header('OpenCV 프레임 분석')
+st.caption('아래 예제에서는 OpenCV가 가상 영상의 녹색 객체를 프레임별로 검출합니다.')
 
 @st.cache_data(show_spinner=False)
 def analyze_video():
